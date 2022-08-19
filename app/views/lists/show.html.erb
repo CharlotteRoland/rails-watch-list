@@ -1,9 +1,19 @@
+<div class="container">
 <h1><%= @list.name %></h1>
-
 <% @list.movies.each do |movie| %>
-    <li><%= movie.title %>
-    <img src="<%= movie.poster_url %>"></li>
+  <div class="card-trip">
+    <img src="<%= movie.poster_url %>" />
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= movie.title %></h2>
+        <p><%= movie.overview %></p>
+      </div>
+      <h2 class="card-trip-pricing">Rating: <%= movie.rating %> <i class="fa-regular fa-heart"></i></h2>
+    </div>
+  </div>
 <% end %>
+</div>
 
-
-<%= link_to "back", lists_path %>
+<%= link_to lists_path do %>
+<i class="fa-solid fa-angles-left"> <strong>Back</strong></i>
+<% end %>
